@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="firstA">Semester: 1st - A</string>
+    <string name="firstAName">Jobayet Ahammed</string>
+    <string name="firstAID">ID: </string>
+    <string name="firstANumber">Contact No: 01773944393 </string>
+
+    <string name="secondA">Semester: 2nd - A</string>
+    <string name="secondAName">Md. Galib Hassan</string>
+    <string name="secondAID">ID: 182311002</string>
+    <string name="secondANumber">Contact No: 01932725987 </string>
+
+    <string name="secondB">Semester: 2nd - B</string>
+    <string name="secondBName">Nafiul Korim Emon</string>
+    <string name="secondBID">ID: 182311068</string>
+    <string name="secondBNumber">Contact No: 01784777616 </string>
+
+    <string name="thirdA">Semester: 3rd - A</string>
+    <string name="thirdAName">Soumik Ahammed</string>
+    <string name="thirdAID">ID: 182311006</string>
+    <string name="thirdANumber">Contact No: 01689201370 </string>
+
+    <string name="thirdB">Semester: 3rd - B</string>
+    <string name="thirdBName">Md. Asaduzzaman Parvez</string>
+    <string name="thirdBID">ID: 182311058</string>
+    <string name="thirdBNumber">Contact No: 01710141352 </string>
+
+    <string name="thirdC">Semester: 3rd - C</string>
+    <string name="thirdCName">Md. Mahtab Ali</string>
+    <string name="thirdCID">ID: 182311127</string>
+    <string name="thirdCNumber">Contact No: 01792894717 </string>
+
+    <string name="fourthA">Semester: 4th - A</string>
+    <string name="fourthAName">Naim Ahammed Khan</string>
+    <string name="fourthAID">ID: 173311001</string>
+    <string name="fourthANumber">Contact No: 01778336137 </string>
+
+    <string name="fifthA">Semester: 5th - A</string>
+    <string name="fifthAName">S. M. Mahabub Hasan Joni</string>
+    <string name="fifthAID">ID: 172311007</string>
+    <string name="fifthANumber">Contact No: 01989543298 </string>
+
+    <string name="fifthB">Semester: 5th - B</string>
+    <string name="fifthBName">Md. Jiban Rahman</string>
+    <string name="fifthBID">ID: 172311037</string>
+    <string name="fifthBNumber">Contact No: 01774032137 </string>
+
+    <string name="sixthA">Semester: 6th - A</string>
+    <string name="sixthAName">Md. Rafiul Hasan</string>
+    <string name="sixthAID">ID: 171311007</string>
+    <string name="sixthANumber">Contact No: 01521301028 </string>
+
+    <string name="sixthB">Semester: 6th - B</string>
+    <string name="sixthBName">Md. Rezwanul Haq Abir</string>
+    <string name="sixthBID">ID: 171311073</string>
+    <string name="sixthBNumber">Contact No: 01757925825 </string>
+
+    <string name="sixthC">Semester: 6th - C</string>
+    <string name="sixthCName">Arup Kumar</string>
+    <string name="sixthCID">ID: 171311135</string>
+    <string name="sixthCNumber">Contact No: 01767648013 </string>
+
+    <string name="seventhA">Semester: 7th - A</string>
+    <string name="seventhAName">Md. Hasin Muhib</string>
+    <string name="seventhAID">ID: 163311027</string>
+    <string name="seventhANumber">Contact No: 01763283838</string>
+
+    <string name="eighthA">Semester: 8th - A</string>
+    <string name="eighthAName">Md. Kamrul Parvez</string>
+    <string name="eighthAID">ID: 162311004</string>
+    <string name="eighthANumber">Contact No: 01773935526 </string>
+
+    <string name="eighthB">Semester: 8th - B</string>
+    <string name="eighthBName">Md. Mosfiqur Rahman</string>
+    <string name="eighthBID">ID: 162311038</string>
+    <string name="eighthBNumber">Contact No: 01770845788 </string>
+
+    <string name="ninthA">Semester: 9th - A</string>
+    <string name="ninthAName">Md. Mosiur Rahman Sweet</string>
+    <string name="ninthAID">ID: 161311003</string>
+    <string name="ninthANumber">Contact No: 01521473707 </string>
+
+    <string name="ninthB">Semester: 9th - B</string>
+    <string name="ninthBName">Md. Sayem Basar</string>
+    <string name="ninthBID">ID: 161311066</string>
+    <string name="ninthBNumber">Contact No: 01773367190 </string>
+
+    <string name="ninthC">Semester: 9th - C</string>
+    <string name="ninthCName"></string>
+    <string name="ninthCID">ID: </string>
+    <string name="ninthCNumber">Contact No: </string>
+
+    <string name="tenthA">Semester: 10th - A</string>
+    <string name="tenthAName">Md. Nasir Uddin</string>
+    <string name="tenthAID">ID: 153311018</string>
+    <string name="tenthANumber">Contact No: 01851323334 </string>
+
+    <string name="eleventhA">Semester: 11th - A</string>
+    <string name="eleventhAName">Md. Tasmir Ahmed Rokon</string>
+    <string name="eleventhAID">ID: 152311031</string>
+    <string name="eleventhANumber">Contact No: 01773254424 </string>
+
+    <string name="eleventhB">Semester: 11th - B</string>
+    <string name="eleventhBName">Md. Ashraf Ali Joy</string>
+    <string name="eleventhBID">ID: 152311065</string>
+    <string name="eleventhBNumber">Contact No: 01797864634 </string>
+
+    <string name="twelfthA">Semester: 12th - A</string>
+    <string name="twelfthAName">Mortuza Shakil Ahmad Chaudhury</string>
+    <string name="twelfthAID">ID: 151311025</string>
+    <string name="twelfthANumber">Contact No: 01703707096 </string>
+
+    <string name="twelfthB">Semester: 12th - B</string>
+    <string name="twelfthBName">Md. Wahedul Islam</string>
+    <string name="twelfthBID">ID: 151311049</string>
+    <string name="twelfthBNumber">Contact No: 01745397494 </string>
+
+    <string name="twelfthC">Semester: 12th - C</string>
+    <string name="twelfthCName">Md. Mehedi Hasan</string>
+    <string name="twelfthCID">ID: 151311084</string>
+    <string name="twelfthCNumber">Contact No: 01701008887 </string>
+
+</resources>

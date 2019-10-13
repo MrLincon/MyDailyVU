@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mydailyvu">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Authentication.PasswordRecoveryActivity"
+            android:parentActivityName=".Authentication.LoginActivity"></activity>
+        <activity android:name=".SplashScreenActivity"></activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity
+            android:name=".Activity.NotificationActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Profile_Teacher.TeacherProfileActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Profile_Teacher.EditTeacherProfileActivity"
+            android:parentActivityName=".Profile_Teacher.TeacherProfileActivity" />
+        <activity
+            android:name=".Profile_CR.CrProfileActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Profile_CR.EditCrProfileActivity"
+            android:parentActivityName=".Profile_CR.CrProfileActivity" />
+        <activity
+            android:name=".Profile_CR.CrListActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Profile_Teacher.TeacherListActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity android:name=".Authentication.ConfirmActivity" />
+        <activity android:name=".Authentication.SignupActivity" />
+        <activity android:name=".Authentication.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.RoutineActivity"
+            android:label="" />
+        <activity
+            android:name=".Routine_Settings.RoutineSettingsActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Webview.VUActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Webview.StudentPanelActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Webview.CSEActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+        <activity
+            android:name=".Webview.NoticeBoardActivity"
+            android:parentActivityName=".Activity.RoutineActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

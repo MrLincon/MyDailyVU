@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647455635138",
+    "firebase_url": "https://mydailyvu2.firebaseio.com",
+    "project_id": "mydailyvu2",
+    "storage_bucket": "mydailyvu2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647455635138:android:8642d9c2d2060edd",
+        "android_client_info": {
+          "package_name": "com.example.mydailyvu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647455635138-aoe9fump2cg3sgbd5ghovivdl9k82iuf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mydailyvu",
+            "certificate_hash": "1eb4310822c28024127b3834f68d6f31d323b078"
+          }
+        },
+        {
+          "client_id": "647455635138-74prpso2ll8ns7vi5invjdmmeujje9p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcUhfVTHmzgbHfskd7ETVQR8ZeRIfNMTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647455635138-74prpso2ll8ns7vi5invjdmmeujje9p4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
