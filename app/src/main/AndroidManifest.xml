@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mydailyvu">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Authentication.PasswordRecoveryActivity"
-            android:parentActivityName=".Authentication.LoginActivity"></activity>
-        <activity android:name=".SplashScreenActivity"></activity>
+        <activity android:name=".TestActivity"></activity>
+        <activity
+            android:name=".Authentication.PasswordRecoveryActivity"
+            android:parentActivityName=".Authentication.LoginActivity" />
+        <activity android:name=".SplashScreenActivity" />
         <activity
             android:name=".FeedbackActivity"
             android:parentActivityName=".Activity.RoutineActivity" />
@@ -40,16 +44,16 @@
             android:parentActivityName=".Activity.RoutineActivity" />
         <activity android:name=".Authentication.ConfirmActivity" />
         <activity android:name=".Authentication.SignupActivity" />
-        <activity android:name=".Authentication.LoginActivity">
+        <activity android:name=".Authentication.LoginActivity"></activity>
+        <activity
+            android:name=".Activity.RoutineActivity"
+            android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.RoutineActivity"
-            android:label="" />
         <activity
             android:name=".Routine_Settings.RoutineSettingsActivity"
             android:parentActivityName=".Activity.RoutineActivity" />
@@ -70,7 +74,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

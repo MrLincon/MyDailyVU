@@ -11,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -32,6 +37,8 @@ import com.example.mydailyvu.Profile_Teacher.TeacherListActivity;
 import com.example.mydailyvu.R;
 import com.example.mydailyvu.Routine_Settings.RoutineSettingsActivity;
 import com.example.mydailyvu.Routine.ViewPagerAdapter;
+import com.example.mydailyvu.TestActivity;
+import com.example.mydailyvu.ThemeSettings;
 import com.example.mydailyvu.Webview.CSEActivity;
 import com.example.mydailyvu.Webview.NoticeBoardActivity;
 import com.example.mydailyvu.Webview.StudentPanelActivity;
@@ -39,13 +46,16 @@ import com.example.mydailyvu.Webview.VUActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
 public class RoutineActivity extends AppCompatActivity {
 
 
-    TextView department, details, changeBtn;
+    TextView department, details;
+
+    LinearLayout changeBtn;
 
     //    private static final String PREF_NAME = "pref_name";
     private static final String PREF_TEACHERS_NAME = "pref_teacherName";
@@ -63,13 +73,25 @@ public class RoutineActivity extends AppCompatActivity {
     NavigationView navigationView;
 
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
     private String userID;
 
     private TextView toolbarTitle;
 
+    ThemeSettings themeSettings;
+    private Switch darkModeSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Theme Settings
+        themeSettings = new ThemeSettings(this);
+        if (themeSettings.loadNightModeState() == false) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        //...............
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -84,6 +106,8 @@ public class RoutineActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         userID = mAuth.getUid();
+
+        user = mAuth.getCurrentUser();
 
 
         changeBtn = findViewById(R.id.changeBtn);
@@ -113,6 +137,16 @@ public class RoutineActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.navigation_view_left);
 
+        Menu menu = navigationView.getMenu();
+        MenuItem logOut = menu.findItem(R.id.log_out);
+
+        if (user == null) {
+            // set new title to the MenuItem
+            logOut.setTitle("Log in");
+        } else {
+            logOut.setTitle("Log out");
+        }
+
 //        if (savedInstanceState == null) {
 //            navigationView.setCheckedItem(R.id.routine);
 //        }
@@ -127,19 +161,18 @@ public class RoutineActivity extends AppCompatActivity {
         viewPager.setCurrentItem(0, true);
         CurrentDay();
 
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RoutineActivity.this);
-        String ROUTINE = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
-        String DEPARTMENT = sharedPreferences.getString(PREF_DEPT, "");
-        String SEMESTER = sharedPreferences.getString(PREF_SEMESTER, "");
-        String SECTION = sharedPreferences.getString(PREF_SEC, "");
-
-
+        MenuItem menuItem = navigationView.getMenu().findItem(R.id.dark_mode_toggle); // This is the menu item that contains your switch
+        Switch drawerSwitch = (Switch) menuItem.getActionView().findViewById(R.id.darkModeSwitch);
+        drawerSwitch.setClickable(false);
+        if (themeSettings.loadNightModeState() == false) {
+            drawerSwitch.setChecked(true);
+        } else {
+            drawerSwitch.setChecked(false);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.routine_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -147,15 +180,13 @@ public class RoutineActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+//        navigationView.setCheckedItem(R.id.dark_mode_toggle);
+//        navigationView.getMenu().performIdentifierAction(R.id.dark_mode_toggle, 0);
 
         switch (item.getItemId()) {
-            case R.id.profileTeacher:
-//                        Intent teacher_profile = new Intent(RoutineActivity.this, TeacherProfileActivity.class);
-//                        startActivity(teacher_profile);
-                break;
-            case R.id.profileCr:
-                Intent cr_profile = new Intent(RoutineActivity.this, CrProfileActivity.class);
-                startActivity(cr_profile);
+            case R.id.aboutDev:
+                Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
+                startActivity(about_intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.notification:
@@ -187,7 +218,7 @@ public class RoutineActivity extends AppCompatActivity {
 
                 @Override
                 public void run() {
-                    doubleBackToExitPressedOnce=false;
+                    doubleBackToExitPressedOnce = false;
                 }
             }, 1000);
         }
@@ -241,67 +272,90 @@ public class RoutineActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
 
-                switch (menuItem.getItemId()) {
-                    case R.id.routine:
-//                        Intent intent_students = new Intent(RoutineActivity.this, RoutineActivity.class);
-//                        startActivity(intent_students);
-                        break;
-                    case R.id.vu:
-                        Intent intent_vu = new Intent(RoutineActivity.this, VUActivity.class);
-                        startActivity(intent_vu);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.student_panel:
-                        Intent intent_student_panel = new Intent(RoutineActivity.this, StudentPanelActivity.class);
-                        startActivity(intent_student_panel);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.dept_cse:
-                        Intent intent_dept_cse = new Intent(RoutineActivity.this, CSEActivity.class);
-                        startActivity(intent_dept_cse);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.teachers_list:
-                        Intent all_teacher = new Intent(RoutineActivity.this, TeacherListActivity.class);
-                        startActivity(all_teacher);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.cr_list:
-                        Intent all_cr = new Intent(RoutineActivity.this, CrListActivity.class);
-                        startActivity(all_cr);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.notice_board:
-                        Intent intent_notice_board = new Intent(RoutineActivity.this, NoticeBoardActivity.class);
-                        startActivity(intent_notice_board);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.feedback:
-                        Intent feedback_intent = new Intent(RoutineActivity.this, FeedbackActivity.class);
-                        startActivity(feedback_intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.about:
-                        Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
-                        startActivity(about_intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                    case R.id.log_out:
-                        FirebaseAuth.getInstance().signOut();
-                        Intent log_in = new Intent(RoutineActivity.this, LoginActivity.class);
-                        startActivity(log_in);
-                        finish();
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        break;
-                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        switch (menuItem.getItemId()) {
+                            case R.id.routine:
+                                break;
+                            case R.id.vu:
+                                Intent intent_vu = new Intent(RoutineActivity.this, VUActivity.class);
+                                startActivity(intent_vu);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.student_panel:
+                                Intent intent_student_panel = new Intent(RoutineActivity.this, StudentPanelActivity.class);
+                                startActivity(intent_student_panel);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.dept_cse:
+                                Intent intent_dept_cse = new Intent(RoutineActivity.this, CSEActivity.class);
+                                startActivity(intent_dept_cse);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.notice_board:
+                                Intent intent_notice_board = new Intent(RoutineActivity.this, NoticeBoardActivity.class);
+                                startActivity(intent_notice_board);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.change_routine:
+                                Intent changeRoutine = new Intent(RoutineActivity.this, RoutineSettingsActivity.class);
+                                startActivity(changeRoutine);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.dark_mode_toggle:
+                                if (themeSettings.loadNightModeState() == false) {
+                                    themeSettings.setNightModeState(true);
+                                    restartApp();   //Recreate activity
+                                } else {
+                                    themeSettings.setNightModeState(false);
+                                    restartApp();   //Recreate activity
+                                }
+                                break;
+                            case R.id.feedback:
+                                Intent feedback_intent = new Intent(RoutineActivity.this, FeedbackActivity.class);
+                                startActivity(feedback_intent);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.about:
+                                Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
+                                startActivity(about_intent);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                break;
+                            case R.id.log_out:
+                                if (user == null) {
+                                    Intent log_in = new Intent(RoutineActivity.this, LoginActivity.class);
+                                    startActivity(log_in);
+                                } else {
+                                    FirebaseAuth.getInstance().signOut();
+                                    Intent log_out = new Intent(RoutineActivity.this, RoutineActivity.class);
+                                    startActivity(log_out);
+                                    finish();
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                }
+                                break;
+                        }
+                    }
+                }, 300);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
     }
+
+    //Recreate activity
+
+    private void restartApp() {
+        Intent i = new Intent(RoutineActivity.this, RoutineActivity.class);
+        startActivity(i);
+        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    //...............
 
     @Override
     protected void onStart() {
@@ -322,20 +376,6 @@ public class RoutineActivity extends AppCompatActivity {
                 details.setText("Routine: " + sharedPreferences.getString(PREF_SEMESTER, "") +
                         " - " + sharedPreferences.getString(PREF_SEC, ""));
                 break;
-        }
-
-        String ROUTINE = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
-        String DEPARTMENT = sharedPreferences.getString(PREF_DEPT, "");
-        String SEMESTER = sharedPreferences.getString(PREF_SEMESTER, "");
-        String SECTION = sharedPreferences.getString(PREF_SEC, "");
-        if (ROUTINE.equals("Student")) {
-            if (DEPARTMENT.equals("CSE")) {
-                if (SEMESTER.equals("8th")) {
-                    if (SECTION.equals("A")) {
-                        Toast.makeText(RoutineActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
         }
     }
 }

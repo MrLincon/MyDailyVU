@@ -30,7 +30,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@color/colorPrimary">
+                    android:background="@color/colorBackground">
 
 
                     <TextView
@@ -40,7 +40,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"
                         android:hint="Department"
-                        android:textColor="@color/colorDarkGray"
+                        android:textColor="@color/colorText"
                         android:textColorHint="#e0e0e0e0"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toStartOf="@+id/changeBtn"
@@ -56,7 +56,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"
                         android:hint="Details"
-                        android:textColor="@color/colorDarkGray"
+                        android:textColor="@color/colorText"
                         android:textColorHint="#e0e0e0e0"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,24 +67,39 @@
                         app:layout_constraintVertical_bias="0.0"
                         tools:ignore="MissingConstraints" />
 
-                    <TextView
+                    <LinearLayout
                         android:clickable="true"
                         android:id="@+id/changeBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/tv_change_border"
+                        android:padding="4dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
-                        android:background="@drawable/tv_change_border"
-                        android:padding="4dp"
-                        android:text="Change"
-                        android:textColor="@color/colorAccent"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.444" />
+                        app:layout_constraintVertical_bias="0.444">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/ic_change_routine"
+                            android:layout_marginRight="4dp"
+                            android:tint="@color/colorAccent"
+                            android:layout_gravity="center"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Change"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,23 +108,23 @@
                     android:minHeight="?attr/actionBarSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    app:tabIndicatorColor="@color/colorAccent"
-                    app:tabSelectedTextColor="@color/colorAccent"
-                    app:tabTextColor="#8F8F8F">
+                    android:background="@color/colorBackground"
+                    app:tabIndicatorColor="@color/colorIndicatorTab"
+                    app:tabSelectedTextColor="@color/colorSelectedTextTab"
+                    app:tabTextColor="@color/colorTextTab">
                 </com.google.android.material.tabs.TabLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@drawable/tab_shadow">
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorView">
                 </View>
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/white"></androidx.viewpager.widget.ViewPager>
+                    android:background="@color/colorViewPagerBackground"></androidx.viewpager.widget.ViewPager>
 
             </LinearLayout>
 
@@ -122,10 +137,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorFadeWhite"
+        android:background="@color/colorBackground"
         app:headerLayout="@layout/navigation_header"
         app:itemIconTint="@color/colorAccent"
-        app:itemTextColor="@color/colorDarkGray"
+        app:itemTextColor="@color/colorText"
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.navigation.NavigationView>

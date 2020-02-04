@@ -20,12 +20,12 @@ public class RoutineAdapter extends FirestoreRecyclerAdapter<Routine, RoutineAda
 
     @Override
     protected void onBindViewHolder(@NonNull NoteHolder holder, int position, @NonNull Routine model) {
-        holder.time.setText(model.getTime());
-        holder.subject.setText(model.getSub());
+        holder.startTime.setText(model.getStartTime());
+        holder.endTime.setText(model.getEndTime());
+        holder.subject.setText(model.getSubject());
         holder.teacher.setText(model.getTeacher());
         holder.routine.setText(model.getRoutine());
         holder.room.setText(model.getRoom());
-        holder.order.setText(model.getOrder());
     }
 
     @NonNull
@@ -37,21 +37,21 @@ public class RoutineAdapter extends FirestoreRecyclerAdapter<Routine, RoutineAda
     }
 
     class NoteHolder extends RecyclerView.ViewHolder {
-        TextView time;
+        TextView startTime;
+        TextView endTime;
         TextView subject;
         TextView teacher;
         TextView routine;
         TextView room;
-        TextView order;
 
         public NoteHolder(View itemView) {
             super(itemView);
-            time = itemView.findViewById(R.id.time);
+            startTime = itemView.findViewById(R.id.startTime);
+            endTime = itemView.findViewById(R.id.endTime);
             subject = itemView.findViewById(R.id.subject);
             teacher = itemView.findViewById(R.id.teacher);
             routine = itemView.findViewById(R.id.routine);
             room = itemView.findViewById(R.id.room);
-            order = itemView.findViewById(R.id.order);
         }
     }
 }

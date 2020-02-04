@@ -1,11 +1,15 @@
 package com.example.mydailyvu.Routine_Settings;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.mydailyvu.Activity.RoutineActivity;
 import com.example.mydailyvu.R;
 
 public class RoutineSettingsActivity extends AppCompatActivity {
@@ -29,6 +33,5 @@ public class RoutineSettingsActivity extends AppCompatActivity {
                 return;
             getFragmentManager().beginTransaction().add(R.id.fragContainer, new RoutineSettingsFragment()).commit();
         }
-
     }
 }

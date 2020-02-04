@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     tools:context=".Routine_Settings.RoutineSettingsActivity">
 
     <include
@@ -16,8 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/toolbar"
-        android:background="@drawable/tab_shadow"></View>
-
+        android:background="@color/colorView"></View>
 
     <FrameLayout
         android:id="@+id/fragContainer"

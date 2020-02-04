@@ -1,19 +1,26 @@
 package com.example.mydailyvu.Routine_Settings;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.mydailyvu.Activity.RoutineActivity;
 import com.example.mydailyvu.R;
+import com.example.mydailyvu.SplashScreenActivity;
+import com.example.mydailyvu.ThemeSettings;
 
 public class RoutineSettingsFragment extends PreferenceFragment {
 
-//    private static final String PREF_NAME = "pref_name";
+    //    private static final String PREF_NAME = "pref_name";
     private static final String PREF_SEC = "pref_sec";
     private static final String PREF_ROUTINE_TYPE = "pref_routineType";
     private static final String PREF_DEPT = "pref_dept";
@@ -21,6 +28,7 @@ public class RoutineSettingsFragment extends PreferenceFragment {
     private static final String PREF_SEMESTER = "pref_semester";
     private static final String PREF_STUDENT = "pref_student";
     private static final String PREF_TEACHER = "pref_teacher";
+    private static final String PREF_DARK_MODE = "pref_dark_mode";
     private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
 
     @Override
@@ -40,23 +48,25 @@ public class RoutineSettingsFragment extends PreferenceFragment {
                     secPref.setSummary(sharedPreferences.getString(key, ""));
                 }
                 if (key.equals(PREF_ROUTINE_TYPE)) {
-                    Preference secPref = findPreference(key);
-                    secPref.setSummary(sharedPreferences.getString(key, ""));
-                }if (key.equals(PREF_TEACHERS_NAME)) {
-                    Preference secPref = findPreference(key);
-                    secPref.setSummary(sharedPreferences.getString(key, ""));
-                }if (key.equals(PREF_SEMESTER)) {
-                    Preference secPref = findPreference(key);
-                    secPref.setSummary(sharedPreferences.getString(key, ""));
-                }if (key.equals(PREF_DEPT)) {
-                    Preference secPref = findPreference(key);
-                    secPref.setSummary(sharedPreferences.getString(key, ""));
+                    Preference routineTypePref = findPreference(key);
+                    routineTypePref.setSummary(sharedPreferences.getString(key, ""));
+                }
+                if (key.equals(PREF_TEACHERS_NAME)) {
+                    Preference teacherPref = findPreference(key);
+                    teacherPref.setSummary(sharedPreferences.getString(key, ""));
+                }
+                if (key.equals(PREF_SEMESTER)) {
+                    Preference semPref = findPreference(key);
+                    semPref.setSummary(sharedPreferences.getString(key, ""));
+                }
+                if (key.equals(PREF_DEPT)) {
+                    Preference deptPref = findPreference(key);
+                    deptPref.setSummary(sharedPreferences.getString(key, ""));
                 }
 
                 SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 String RoutineType = sharedPreferences2.getString(PREF_ROUTINE_TYPE, "");
-                switch(RoutineType)
-                {
+                switch (RoutineType) {
                     case "Teacher":
                         getPreferenceScreen().findPreference(PREF_TEACHER).setEnabled(true);
                         getPreferenceScreen().findPreference(PREF_STUDENT).setEnabled(false);
@@ -66,11 +76,8 @@ public class RoutineSettingsFragment extends PreferenceFragment {
                         getPreferenceScreen().findPreference(PREF_STUDENT).setEnabled(true);
                         break;
                 }
-
             }
-
         };
-
     }
 
     @Override
@@ -78,9 +85,6 @@ public class RoutineSettingsFragment extends PreferenceFragment {
         super.onResume();
 
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(preferenceChangeListener);
-
-//        Preference namePref = findPreference(PREF_NAME);
-//        namePref.setSummary(getPreferenceScreen().getSharedPreferences().getString(PREF_NAME, "Enter Your Name"));
 
         Preference secPref = findPreference(PREF_SEC);
         secPref.setSummary(getPreferenceScreen().getSharedPreferences().getString(PREF_SEC, "Select Your Section"));
@@ -98,13 +102,9 @@ public class RoutineSettingsFragment extends PreferenceFragment {
         departmentPref.setSummary(getPreferenceScreen().getSharedPreferences().getString(PREF_DEPT, "Select your department"));
 
 
-
-
-
         SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String RoutineType = sharedPreferences2.getString(PREF_ROUTINE_TYPE, "");
-        switch(RoutineType)
-        {
+        switch (RoutineType) {
             case "Teacher":
                 getPreferenceScreen().findPreference(PREF_TEACHER).setEnabled(true);
                 getPreferenceScreen().findPreference(PREF_STUDENT).setEnabled(false);

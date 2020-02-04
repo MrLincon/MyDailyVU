@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorCard"
     tools:context=".AboutActivity">
 
     <ImageView
@@ -23,9 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:elevation="5dp"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        app:cardBackgroundColor="@color/colorBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,20 +58,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ID: "
-                        android:textColor="#212121"></TextView>
+                        android:textColor="@color/colorText"></TextView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="171311043"
-                        android:textColor="#212121"></TextView>
+                        android:textColor="@color/colorText"></TextView>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="1dp"
+                <View
+                    android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="#3C212121"></LinearLayout>
+                    android:background="@color/colorBackground"></View>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -82,13 +84,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Batch: "
-                        android:textColor="#212121"></TextView>
+                        android:textColor="@color/colorText"></TextView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="14th"
-                        android:textColor="#212121"></TextView>
+                        android:textColor="@color/colorText"></TextView>
 
 
                 </LinearLayout>
@@ -105,8 +107,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_facebook"></ImageView>
 
                 <TextView
@@ -116,7 +118,7 @@
                     android:layout_gravity="center"
                     android:paddingLeft="8dp"
                     android:text="Facebook"
-                    android:textColor="@color/colorDarkGray"
+                    android:textColor="@color/colorText"
                     android:textSize="14sp"></TextView>
 
 
@@ -138,12 +140,12 @@
                     android:layout_gravity="center"
                     android:paddingRight="8dp"
                     android:text="Github"
-                    android:textColor="@color/colorDarkGray"
+                    android:textColor="@color/colorText"
                     android:textSize="14sp"></TextView>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_github"></ImageView>
 
 
@@ -170,7 +172,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Ahamed Lincon"
-                android:textColor="@color/colorDarkGray"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -183,7 +185,7 @@
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/maven_pro"
                 android:text="Department of CSE"
-                android:textColor="@color/colorDarkGray"
+                android:textColor="@color/colorText"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -197,7 +199,7 @@
                 android:layout_marginBottom="32dp"
                 android:fontFamily="@font/maven_pro"
                 android:text="Varendra University"
-                android:textColor="@color/colorDarkGray"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +238,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

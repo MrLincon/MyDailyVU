@@ -10,12 +10,8 @@
     </item>
 
     <item
-        android:id="@+id/profileTeacher"
-        android:title="Profile - Teacher"
-        app:showAsAction="never">
-    </item><item
-        android:id="@+id/profileCr"
-        android:title="Profile - CR"
+        android:id="@+id/aboutDev"
+        android:title="About dev"
         app:showAsAction="never">
     </item>
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="open">Navigation Drawer Opened</string>
+    <string name="close">Navigation Drawer Closed</string>
+
+    <string name="app_name">My Daily VU</string>
+
+    <string name="mode">Dark Mode</string>
+
+</resources>

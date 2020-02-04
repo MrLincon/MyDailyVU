@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#121416</color>
+    <color name="colorPrimaryDark">#121416</color>
+    <color name="colorAccent">#53BBCF</color>
+
+    <color name="colorText">#eee</color>
+    <color name="colorButton">#ffffff</color>
+    <color name="colorButtonText">#121416</color>
+
+    <color name="colorBackground">#121416</color>
+    <color name="colorViewPagerBackground">#303030</color>
+    <color name="colorCard">#202020</color>
+    <color name="colorView">#1D1D1D</color>
+    <color name="colorIconTint">#fff</color>
+
+    <color name="colorRoutineHeader">#121416</color>
+    <color name="colorRoutineHeaderText">#53BBCF</color>
+
+    <color name="colorTextTab">#424242</color>
+    <color name="colorIndicatorTab">#53BBCF</color>
+    <color name="colorSelectedTextTab">#eee</color>
+
+</resources>

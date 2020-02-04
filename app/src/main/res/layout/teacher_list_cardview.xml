@@ -85,7 +85,7 @@
                     android:layout_gravity="left"
                     android:layout_marginTop="10dp"
                     android:hint="CSE"
-                    android:textColor="@color/colorFadeBlack"
+                    android:textColor="@color/colorText"
                     android:textSize="16dp"></TextView>
 
             </LinearLayout>
@@ -115,7 +115,7 @@
                     android:layout_gravity="left"
                     android:layout_marginTop="10dp"
                     android:hint="MMA"
-                    android:textColor="@color/colorFadeBlack"
+                    android:textColor="@color/colorText"
                     android:textSize="16dp"></TextView>
 
             </LinearLayout>
@@ -142,7 +142,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="10dp"
                     android:hint="Lecturer"
-                    android:textColor="@color/colorFadeBlack"
+                    android:textColor="@color/colorText"
                     android:textSize="16dp"></TextView>
 
             </LinearLayout>
@@ -170,7 +170,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="10dp"
                     android:hint="R - 104"
-                    android:textColor="@color/colorFadeBlack"
+                    android:textColor="@color/colorText"
                     android:textSize="16dp"></TextView>
 
             </LinearLayout>

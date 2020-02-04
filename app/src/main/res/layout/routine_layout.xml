@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     app:cardElevation="5dp"
     app:cardCornerRadius="3dp"
-    app:cardBackgroundColor="#f5f5f5"
+    app:cardBackgroundColor="@color/colorCard"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
 
@@ -21,33 +21,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            android:background="@color/colorAccent"
+            android:background="@color/colorRoutineHeader"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/time"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="9.00 AM - 10.25 PM"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp"
-                android:gravity="center"></TextView>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="9.00 AM"
+                    android:textColor="@color/colorRoutineHeaderText"
+                    android:textSize="24sp"
+                    android:gravity="center"></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" - "
+                    android:textColor="@color/colorRoutineHeaderText"
+                    android:textSize="24sp"
+                    android:gravity="center"></TextView>
+
+                <TextView
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="9.25 AM"
+                    android:textColor="@color/colorRoutineHeaderText"
+                    android:textSize="24sp"
+                    android:gravity="center"></TextView>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorView"></View>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/linearLayout6"
+                android:id="@+id/linearLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,18 +87,18 @@
                     android:text="CSE - 325"
                     android:layout_marginTop="4dp"
                     android:textSize="18sp"
-                    android:textColor="@color/colorDarkGray"></TextView>
+                    android:textColor="@color/colorText"></TextView>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+                android:layout_below="@id/linearLayout1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,19 +112,18 @@
                     android:text="MMA"
                     android:layout_marginTop="4dp"
                     android:textSize="18sp"
-                    android:textColor="@color/colorDarkGray"></TextView>
+                    android:textColor="@color/colorText"></TextView>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout7"
+                android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,7 +139,7 @@
                     android:text="9th - A"
                     android:layout_marginTop="4dp"
                     android:textSize="18sp"
-                    android:textColor="@color/colorDarkGray"></TextView>
+                    android:textColor="@color/colorText"></TextView>
 
             </LinearLayout>
 
@@ -124,8 +149,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/linearLayout3">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,21 +166,19 @@
                     android:text="R1"
                     android:layout_marginTop="4dp"
                     android:textSize="18sp"
-                    android:textColor="@color/colorDarkGray"></TextView>
+                    android:textColor="@color/colorText"></TextView>
 
             </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+        </RelativeLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="0dp"
-        android:textColor="#f5f5f5"
-        android:layout_gravity="right|bottom"></TextView>
 
 </androidx.cardview.widget.CardView>

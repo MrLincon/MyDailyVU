@@ -2,34 +2,54 @@ package com.example.mydailyvu.Models;
 
 public class Routine {
 
-    public String time,sub,teacher,routine,room,order;
+    public String startTime,endTime,subject,department,teacher,routine,room,orderHour,orderMinute,am_pm;
 
     public Routine() {
     }
 
-    public Routine(String time, String sub, String teacher, String routine, String room, String order) {
-        this.time = time;
-        this.sub = sub;
+    public Routine(String startTime, String endTime, String subject, String department, String teacher, String routine, String room, String orderHour, String orderMinute, String am_pm) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.subject = subject;
+        this.department = department;
         this.teacher = teacher;
         this.routine = routine;
         this.room = room;
-        this.order = order;
+        this.orderHour = orderHour;
+        this.orderMinute = orderMinute;
+        this.am_pm = am_pm;
     }
 
-    public String getTime() {
-        return time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getSub() {
-        return sub;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setSub(String sub) {
-        this.sub = sub;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public String getTeacher() {
@@ -56,11 +76,27 @@ public class Routine {
         this.room = room;
     }
 
-    public String getOrder() {
-        return order;
+    public String getOrderHour() {
+        return orderHour;
     }
 
-    public void setOrder(String order) {
-        this.order = order;
+    public void setOrderHour(String orderHour) {
+        this.orderHour = orderHour;
+    }
+
+    public String getOrderMinute() {
+        return orderMinute;
+    }
+
+    public void setOrderMinute(String orderMinute) {
+        this.orderMinute = orderMinute;
+    }
+
+    public String getAm_pm() {
+        return am_pm;
+    }
+
+    public void setAm_pm(String am_pm) {
+        this.am_pm = am_pm;
     }
 }

@@ -44,7 +44,7 @@ public class Fragment_Tuesday extends Fragment {
     private static final String PREF_DEPT = "pref_dept";
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    private CollectionReference routine = db.collection("CSE");
     private RoutineAdapter adapter;
 
 
@@ -61,8 +61,6 @@ public class Fragment_Tuesday extends Fragment {
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.sidePadding);
         recyclerView.addItemDecoration(new RoutineRecyclerDecoration(topPadding,sidePadding,bottomPadding));
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-
         getRoutine();
 
         return view;
@@ -70,18 +68,52 @@ public class Fragment_Tuesday extends Fragment {
 
     private void getRoutine() {
 
-        anim_tuesday.setVisibility(View.VISIBLE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        anim_tuesday.setVisibility(View.VISIBLE);
 
         String ROUTINE = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
         String DEPARTMENT = sharedPreferences.getString(PREF_DEPT, "");
         String SEMESTER = sharedPreferences.getString(PREF_SEMESTER, "");
         String SECTION = sharedPreferences.getString(PREF_SEC, "");
+        String TEACHERS_NAME = sharedPreferences.getString(PREF_TEACHERS_NAME, "");
 
-        if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("A")  ){
-            CollectionReference tuesday = db.collection("CSE").document("9A").collection("Tuesday");
-            Query query = tuesday.orderBy("order", Query.Direction.ASCENDING);
+        String SEM = null;
+
+        if (SEMESTER.equals("1st")){
+            SEM = "1";
+        }else if(SEMESTER.equals("2nd")){
+            SEM = "2";
+        }else if(SEMESTER.equals("3rd")){
+            SEM = "3";
+        }else if(SEMESTER.equals("4th")){
+            SEM = "4";
+        }else if(SEMESTER.equals("5th")){
+            SEM = "5";
+        }else if(SEMESTER.equals("6th")){
+            SEM = "6";
+        }else if(SEMESTER.equals("7th")){
+            SEM = "7";
+        }else if(SEMESTER.equals("8th")){
+            SEM = "8";
+        }else if(SEMESTER.equals("9th")){
+            SEM = "9";
+        }else if(SEMESTER.equals("10th")){
+            SEM = "10";
+        }else if(SEMESTER.equals("11th")){
+            SEM = "11";
+        }else if(SEMESTER.equals("12th")){
+            SEM = "12";
+        }
+
+        if (ROUTINE.equals("Student")){
+            Query query = routine.whereEqualTo("semester",SEM)
+                    .whereEqualTo("section",SECTION)
+                    .whereEqualTo("department",DEPARTMENT)
+                    .whereEqualTo("day","Tuesday")
+                    .orderBy("am_pm", Query.Direction.ASCENDING)
+                    .orderBy("orderHour", Query.Direction.ASCENDING)
+                    .orderBy("orderMinute", Query.Direction.ASCENDING);
             FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
                     .setQuery(query, Routine.class)
                     .build();
@@ -93,23 +125,13 @@ public class Fragment_Tuesday extends Fragment {
             recyclerView.setAdapter(adapter);
             anim_tuesday.setVisibility(View.GONE);
             adapter.startListening();
-        }else if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("B")  ){
-            CollectionReference tuesday = db.collection("CSE").document("9B").collection("Tuesday");
-            Query query = tuesday.orderBy("order", Query.Direction.ASCENDING);
-            FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
-                    .setQuery(query, Routine.class)
-                    .build();
-
-            adapter = new RoutineAdapter(options);
-
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(adapter);
-            anim_tuesday.setVisibility(View.GONE);
-            adapter.startListening();
-        }else if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("C")  ){
-            CollectionReference tuesday = db.collection("CSE").document("9C").collection("Tuesday");
-            Query query = tuesday.orderBy("order", Query.Direction.ASCENDING);
+        } else if (ROUTINE.equals("Teacher")){
+            Query query = routine.whereEqualTo("teacher",TEACHERS_NAME)
+                    .whereEqualTo("day","Tuesday")
+                    .whereEqualTo("department",DEPARTMENT)
+                    .orderBy("am_pm", Query.Direction.ASCENDING)
+                    .orderBy("orderHour", Query.Direction.ASCENDING)
+                    .orderBy("orderMinute", Query.Direction.ASCENDING);
             FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
                     .setQuery(query, Routine.class)
                     .build();
@@ -128,6 +150,7 @@ public class Fragment_Tuesday extends Fragment {
                 e.printStackTrace();
             }
         }
+
     }
 
     @Override

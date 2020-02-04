@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mydailyvu.Activity.RoutineActivity;
+import com.example.mydailyvu.Models.Routine;
 import com.example.mydailyvu.R;
 import com.example.mydailyvu.SplashScreenActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -129,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        Intent intent = new Intent(LoginActivity.this, SplashScreenActivity.class);
+        Intent intent = new Intent(LoginActivity.this, RoutineActivity.class);
         startActivity(intent);
         finish();
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);

@@ -49,5 +49,4 @@
             android:title="Section"></ListPreference>
     </PreferenceCategory>
 
-
 </PreferenceScreen>

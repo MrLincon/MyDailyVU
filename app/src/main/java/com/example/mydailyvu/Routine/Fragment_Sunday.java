@@ -41,7 +41,7 @@ public class Fragment_Sunday extends Fragment {
     private static final String PREF_DEPT = "pref_dept";
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference sunday = db.collection("CSE").document("9A").collection("Sunday");
+    private CollectionReference routine = db.collection("CSE");
 
     private RoutineAdapter adapter;
 
@@ -58,43 +58,59 @@ public class Fragment_Sunday extends Fragment {
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.sidePadding);
         recyclerView.addItemDecoration(new RoutineRecyclerDecoration(topPadding, sidePadding, bottomPadding));
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-
         getRoutine();
-
-//        if (ROUTINE.equals("Student")) {
-//            if (DEPARTMENT.equals("CSE")) {
-//                if (SEMESTER.equals("9th")) {
-//                    if (SECTION.equals("A")) {
-//
-//                    } else {
-////
-//                    }
-//                }
-//            }
-//        }
-//        Query query = sunday.orderBy("order", Query.Direction.ASCENDING);
-
-
 
         return view;
     }
 
     private void getRoutine() {
 
-        anim_sunday.setVisibility(View.VISIBLE);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        anim_sunday.setVisibility(View.VISIBLE);
 
         String ROUTINE = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
         String DEPARTMENT = sharedPreferences.getString(PREF_DEPT, "");
         String SEMESTER = sharedPreferences.getString(PREF_SEMESTER, "");
         String SECTION = sharedPreferences.getString(PREF_SEC, "");
+        String TEACHERS_NAME = sharedPreferences.getString(PREF_TEACHERS_NAME, "");
 
-        if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("A")  ){
+        String SEM = null;
 
-            CollectionReference sunday = db.collection("CSE").document("9A").collection("Sunday");
-            Query query = sunday.orderBy("order");
+        if (SEMESTER.equals("1st")){
+            SEM = "1";
+        }else if(SEMESTER.equals("2nd")){
+            SEM = "2";
+        }else if(SEMESTER.equals("3rd")){
+            SEM = "3";
+        }else if(SEMESTER.equals("4th")){
+            SEM = "4";
+        }else if(SEMESTER.equals("5th")){
+            SEM = "5";
+        }else if(SEMESTER.equals("6th")){
+            SEM = "6";
+        }else if(SEMESTER.equals("7th")){
+            SEM = "7";
+        }else if(SEMESTER.equals("8th")){
+            SEM = "8";
+        }else if(SEMESTER.equals("9th")){
+            SEM = "9";
+        }else if(SEMESTER.equals("10th")){
+            SEM = "10";
+        }else if(SEMESTER.equals("11th")){
+            SEM = "11";
+        }else if(SEMESTER.equals("12th")){
+            SEM = "12";
+        }
+
+        if (ROUTINE.equals("Student")){
+            Query query = routine.whereEqualTo("semester",SEM)
+                    .whereEqualTo("section",SECTION)
+                    .whereEqualTo("department",DEPARTMENT)
+                    .whereEqualTo("day","Sunday")
+                    .orderBy("am_pm", Query.Direction.ASCENDING)
+                    .orderBy("orderHour", Query.Direction.ASCENDING)
+                    .orderBy("orderMinute", Query.Direction.ASCENDING);
             FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
                     .setQuery(query, Routine.class)
                     .build();
@@ -106,36 +122,24 @@ public class Fragment_Sunday extends Fragment {
             recyclerView.setAdapter(adapter);
             anim_sunday.setVisibility(View.GONE);
             adapter.startListening();
+        } else if (ROUTINE.equals("Teacher")){
+            Query query = routine.whereEqualTo("teacher",TEACHERS_NAME)
+                    .whereEqualTo("day","Sunday")
+                    .whereEqualTo("department",DEPARTMENT)
+                    .orderBy("am_pm", Query.Direction.ASCENDING)
+                    .orderBy("orderHour", Query.Direction.ASCENDING)
+                    .orderBy("orderMinute", Query.Direction.ASCENDING);
+            FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
+                    .setQuery(query, Routine.class)
+                    .build();
 
+            adapter = new RoutineAdapter(options);
 
-        }else if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("B")  ){
-//            CollectionReference sunday = db.collection("CSE").document("9B").collection("Sunday");
-//            Query query = sunday.orderBy("order", Query.Direction.ASCENDING);
-//            FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
-//                    .setQuery(query, Routine.class)
-//                    .build();
-//
-//            adapter = new RoutineAdapter(options);
-//
-//            recyclerView.setHasFixedSize(true);
-//            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//            recyclerView.setAdapter(adapter);
-//            anim_sunday.setVisibility(View.GONE);
-//            adapter.startListening();
-        }else if (ROUTINE.equals("Student") && DEPARTMENT.equals("CSE") && SEMESTER.equals("9th") && SECTION.equals("C")  ){
-//            CollectionReference sunday = db.collection("CSE").document("9C").collection("Sunday");
-//            Query query = sunday.orderBy("order", Query.Direction.ASCENDING);
-//            FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
-//                    .setQuery(query, Routine.class)
-//                    .build();
-//
-//            adapter = new RoutineAdapter(options);
-//
-//            recyclerView.setHasFixedSize(true);
-//            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//            recyclerView.setAdapter(adapter);
-//            anim_sunday.setVisibility(View.GONE);
-//            adapter.startListening();
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(adapter);
+            anim_sunday.setVisibility(View.GONE);
+            adapter.startListening();
         }else {
             try {
                 adapter.stopListening();
@@ -143,6 +147,7 @@ public class Fragment_Sunday extends Fragment {
                 e.printStackTrace();
             }
         }
+
     }
 
     @Override

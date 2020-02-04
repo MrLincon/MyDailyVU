@@ -39,8 +39,6 @@ import java.util.Map;
 
 public class EditCrProfileActivity extends AppCompatActivity {
 
-    private static final String KEY_USER_IMAGE = "imageUrl";
-
     Toolbar toolbar;
 
     ProgressBar progressBar;
@@ -65,6 +63,7 @@ public class EditCrProfileActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private Uri mImageUri;
+    private static final String KEY_USER_IMAGE = "imageUrl";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

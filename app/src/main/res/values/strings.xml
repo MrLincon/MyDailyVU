@@ -6,4 +6,6 @@
 
     <string name="app_name">My Daily VU</string>
 
+    <string name="mode">Light Mode</string>
+
 </resources>

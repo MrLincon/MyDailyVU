@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "647455635138",
-    "firebase_url": "https://mydailyvu2.firebaseio.com",
-    "project_id": "mydailyvu2",
-    "storage_bucket": "mydailyvu2.appspot.com"
+    "project_number": "620882906316",
+    "firebase_url": "https://my-daily-vu-8e0d6.firebaseio.com",
+    "project_id": "my-daily-vu-8e0d6",
+    "storage_bucket": "my-daily-vu-8e0d6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:647455635138:android:8642d9c2d2060edd",
+        "mobilesdk_app_id": "1:620882906316:android:1f2e02ad14f4d93e2f8669",
         "android_client_info": {
           "package_name": "com.example.mydailyvu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "647455635138-aoe9fump2cg3sgbd5ghovivdl9k82iuf.apps.googleusercontent.com",
+          "client_id": "620882906316-1vl3v2g74vqhdm1lgi8hlbilvbecktu9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.mydailyvu",
@@ -23,20 +23,57 @@
           }
         },
         {
-          "client_id": "647455635138-74prpso2ll8ns7vi5invjdmmeujje9p4.apps.googleusercontent.com",
+          "client_id": "620882906316-ci60i1kl20l5bha1ggo9173m8frr5c22.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDcUhfVTHmzgbHfskd7ETVQR8ZeRIfNMTQ"
+          "current_key": "AIzaSyD4lXhfz5nxkxkRkJrMdgPv44WMhdXJY4c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "647455635138-74prpso2ll8ns7vi5invjdmmeujje9p4.apps.googleusercontent.com",
+              "client_id": "620882906316-ci60i1kl20l5bha1ggo9173m8frr5c22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620882906316:android:cc746b945f14130e2f8669",
+        "android_client_info": {
+          "package_name": "com.example.mydailyvuadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620882906316-msg9subidmer4sn0gd4iqaji4hv0s9b6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mydailyvuadmin",
+            "certificate_hash": "1eb4310822c28024127b3834f68d6f31d323b078"
+          }
+        },
+        {
+          "client_id": "620882906316-ci60i1kl20l5bha1ggo9173m8frr5c22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4lXhfz5nxkxkRkJrMdgPv44WMhdXJY4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620882906316-ci60i1kl20l5bha1ggo9173m8frr5c22.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
