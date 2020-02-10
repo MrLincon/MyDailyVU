@@ -1,6 +1,7 @@
 package com.example.mydailyvu.Routine_Settings;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -33,5 +34,12 @@ public class RoutineSettingsActivity extends AppCompatActivity {
                 return;
             getFragmentManager().beginTransaction().add(R.id.fragContainer, new RoutineSettingsFragment()).commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(RoutineSettingsActivity.this, RoutineActivity.class);
+        startActivity(intent);
     }
 }

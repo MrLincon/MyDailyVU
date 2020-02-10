@@ -12,14 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mydailyvu.Activity.RoutineActivity;
-import com.example.mydailyvu.Profile_CR.CrProfileActivity;
-import com.example.mydailyvu.Profile_CR.EditCrProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;

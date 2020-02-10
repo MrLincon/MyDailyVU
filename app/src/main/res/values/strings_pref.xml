@@ -11,42 +11,41 @@
     </string-array>
 
     <string-array name="pref_Tname">
+        <item>MSZ</item>
         <item>KIM</item>
         <item>SY</item>
+        <item>AF</item>
         <item>AH</item>
-        <item>FI</item>
+        <item>SP</item>
         <item>RAK</item>
-        <item>MMA</item>
         <item>SZ</item>
         <item>URC</item>
-        <item>SP</item>
-        <item>AHS</item>
-        <item>MR</item>
-        <item>SBC</item>
-        <item>JFJ</item>
-        <item>KCR</item>
+        <item>JF</item>
         <item>MK</item>
         <item>NAT</item>
-        <item>BM</item>
-        <item>MMR</item>
         <item>FW</item>
         <item>SN</item>
-        <item>RI</item>
         <item>NH</item>
         <item>SR</item>
         <item>NSS</item>
-        <item>TKA</item>
         <item>DH</item>
+        <item>TKA</item>
         <item>MKD</item>
-        <item>NIM</item>
+        <item>MTI</item>
+        <item>NN</item>
+        <item>RIS</item>
+        <item>AAL</item>
+        <item>SAL</item>
+        <item>GS</item>
+        <item>EH</item>
+        <item>AY</item>
+        <item>AAS</item>
         <item>MRI</item>
-        <item>MOF</item>
-        <item>RAP</item>
-        <item>MA</item>
-        <item>AJ </item>
-        <item>NBZ</item>
-        <item>BZ</item>
-        <item>MAZ</item>
+        <item>AM</item>
+        <item>MMH</item>
+        <item>RI</item>
+        <item>SS</item>
+        <item>MP</item>
     </string-array>
 
     <string-array name="pref_semester">

@@ -6,7 +6,6 @@
     <item android:title="Campus">
         <menu>
             <group android:checkableBehavior="single">
-
                 <item
                     android:id="@+id/routine"
                     android:title="Routine"
@@ -27,15 +26,6 @@
                     android:id="@+id/notice_board"
                     android:title="Notice Board"
                     android:icon="@drawable/ic_notice_board"></item>
-
-            </group>
-        </menu>
-    </item>
-
-    <item android:title="More">
-        <menu>
-            <group android:checkableBehavior="none">
-
                 <item
                     android:id="@+id/change_routine"
                     android:icon="@drawable/ic_change_routine"
@@ -45,6 +35,13 @@
                     android:icon="@drawable/ic_brightness"
                     app:actionLayout="@layout/drawer_switch"
                     android:title="Dark Mode"></item>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="More">
+        <menu>
+            <group android:checkableBehavior="none">
                 <item
                     android:id="@+id/feedback"
                     android:title="Feedback"
@@ -52,7 +49,7 @@
 
                 <item
                     android:id="@+id/about"
-                    android:title="About"
+                    android:title="About Dev"
                     android:icon="@drawable/ic_about"></item>
                 <item
                     android:id="@+id/log_out"

@@ -1,9 +1,12 @@
 package com.example.mydailyvu.Activity;
 
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -12,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -31,13 +35,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.mydailyvu.AboutActivity;
 import com.example.mydailyvu.Authentication.LoginActivity;
 import com.example.mydailyvu.FeedbackActivity;
-import com.example.mydailyvu.Profile_CR.CrListActivity;
-import com.example.mydailyvu.Profile_CR.CrProfileActivity;
-import com.example.mydailyvu.Profile_Teacher.TeacherListActivity;
 import com.example.mydailyvu.R;
 import com.example.mydailyvu.Routine_Settings.RoutineSettingsActivity;
 import com.example.mydailyvu.Routine.ViewPagerAdapter;
-import com.example.mydailyvu.TestActivity;
 import com.example.mydailyvu.ThemeSettings;
 import com.example.mydailyvu.Webview.CSEActivity;
 import com.example.mydailyvu.Webview.NoticeBoardActivity;
@@ -81,6 +81,8 @@ public class RoutineActivity extends AppCompatActivity {
     ThemeSettings themeSettings;
     private Switch darkModeSwitch;
 
+    Dialog popupChangeRoutine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Theme Settings
@@ -109,6 +111,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
+        popupChangeRoutine = new Dialog(this);
 
         changeBtn = findViewById(R.id.changeBtn);
 
@@ -184,11 +187,6 @@ public class RoutineActivity extends AppCompatActivity {
 //        navigationView.getMenu().performIdentifierAction(R.id.dark_mode_toggle, 0);
 
         switch (item.getItemId()) {
-            case R.id.aboutDev:
-                Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
-                startActivity(about_intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                break;
             case R.id.notification:
                 Intent notification = new Intent(RoutineActivity.this, NotificationActivity.class);
                 startActivity(notification);
@@ -357,6 +355,78 @@ public class RoutineActivity extends AppCompatActivity {
 
     //...............
 
+    private void loadPopUp() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        department.setText(sharedPreferences.getString(PREF_DEPT, ""));
+
+        String RoutineType = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
+        String Department = sharedPreferences.getString(PREF_DEPT, "");
+        String Semester = sharedPreferences.getString(PREF_SEMESTER, "");
+        String Section = sharedPreferences.getString(PREF_SEC, "");
+        String TeachersName = sharedPreferences.getString(PREF_TEACHERS_NAME, "");
+
+        if (RoutineType == "" || Department == "") {
+            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
+            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            select_routine.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent_profile = new Intent(RoutineActivity.this, RoutineSettingsActivity.class);
+                    startActivity(intent_profile);
+                }
+            });
+            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupChangeRoutine.dismiss();
+                }
+            });
+            popupChangeRoutine.show();
+        }
+        if (RoutineType.equals("Teacher") && TeachersName == "") {
+            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
+            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            select_routine.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent_profile = new Intent(RoutineActivity.this, RoutineSettingsActivity.class);
+                    startActivity(intent_profile);
+                }
+            });
+            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupChangeRoutine.dismiss();
+                }
+            });
+            popupChangeRoutine.show();
+        }
+        if (RoutineType.equals("Student") && (Semester == "" || Section == "")) {
+            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
+            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            select_routine.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent_profile = new Intent(RoutineActivity.this, RoutineSettingsActivity.class);
+                    startActivity(intent_profile);
+                }
+            });
+            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupChangeRoutine.dismiss();
+                }
+            });
+            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            popupChangeRoutine.show();
+        }
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -367,6 +437,10 @@ public class RoutineActivity extends AppCompatActivity {
         department.setText(sharedPreferences.getString(PREF_DEPT, ""));
 
         String RoutineType = sharedPreferences.getString(PREF_ROUTINE_TYPE, "");
+        String Department = sharedPreferences.getString(PREF_DEPT, "");
+        String Semester = sharedPreferences.getString(PREF_SEMESTER, "");
+        String Section = sharedPreferences.getString(PREF_SEC, "");
+        String TeachersName = sharedPreferences.getString(PREF_TEACHERS_NAME, "");
 
         switch (RoutineType) {
             case "Teacher":
@@ -377,5 +451,8 @@ public class RoutineActivity extends AppCompatActivity {
                         " - " + sharedPreferences.getString(PREF_SEC, ""));
                 break;
         }
+
+        loadPopUp();
+
     }
 }

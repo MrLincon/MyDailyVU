@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.mydailyvu.Models.Routine;
 import com.example.mydailyvu.Models.RoutineAdapter;
-import com.example.mydailyvu.Models.RoutineAdapterORG;
-import com.example.mydailyvu.Models.RoutineORG;
 import com.example.mydailyvu.R;
 import com.example.mydailyvu.Models.RoutineRecyclerDecoration;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -123,7 +121,8 @@ public class Fragment_Sunday extends Fragment {
             anim_sunday.setVisibility(View.GONE);
             adapter.startListening();
         } else if (ROUTINE.equals("Teacher")){
-            Query query = routine.whereEqualTo("teacher",TEACHERS_NAME)
+
+            Query query = routine.whereArrayContains("teachers",TEACHERS_NAME)
                     .whereEqualTo("day","Sunday")
                     .whereEqualTo("department",DEPARTMENT)
                     .orderBy("am_pm", Query.Direction.ASCENDING)

@@ -126,7 +126,7 @@ public class Fragment_Tuesday extends Fragment {
             anim_tuesday.setVisibility(View.GONE);
             adapter.startListening();
         } else if (ROUTINE.equals("Teacher")){
-            Query query = routine.whereEqualTo("teacher",TEACHERS_NAME)
+            Query query = routine.whereArrayContains("teachers",TEACHERS_NAME)
                     .whereEqualTo("day","Tuesday")
                     .whereEqualTo("department",DEPARTMENT)
                     .orderBy("am_pm", Query.Direction.ASCENDING)

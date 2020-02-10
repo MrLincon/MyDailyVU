@@ -1,13 +1,16 @@
 package com.example.mydailyvu.Models;
 
+import java.util.List;
+
 public class Routine {
 
-    public String startTime,endTime,subject,department,teacher,routine,room,orderHour,orderMinute,am_pm;
+    private String startTime,endTime,subject,department,teacher,routine,room,orderHour,orderMinute,am_pm;
+    private List<String> teachers;
 
     public Routine() {
     }
 
-    public Routine(String startTime, String endTime, String subject, String department, String teacher, String routine, String room, String orderHour, String orderMinute, String am_pm) {
+    public Routine(String startTime, String endTime, String subject, String department, String teacher, String routine, String room, String orderHour, String orderMinute, String am_pm, List<String> teachers) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.subject = subject;
@@ -18,6 +21,7 @@ public class Routine {
         this.orderHour = orderHour;
         this.orderMinute = orderMinute;
         this.am_pm = am_pm;
+        this.teachers = teachers;
     }
 
     public String getStartTime() {
@@ -98,5 +102,13 @@ public class Routine {
 
     public void setAm_pm(String am_pm) {
         this.am_pm = am_pm;
+    }
+
+    public List<String> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<String> teachers) {
+        this.teachers = teachers;
     }
 }
