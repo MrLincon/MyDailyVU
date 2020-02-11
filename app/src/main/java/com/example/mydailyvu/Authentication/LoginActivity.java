@@ -14,9 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mydailyvu.Activity.RoutineActivity;
-import com.example.mydailyvu.Models.Routine;
 import com.example.mydailyvu.R;
-import com.example.mydailyvu.SplashScreenActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;

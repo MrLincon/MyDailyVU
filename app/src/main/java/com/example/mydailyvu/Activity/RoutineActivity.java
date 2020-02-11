@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -26,15 +25,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.mydailyvu.AboutActivity;
 import com.example.mydailyvu.Authentication.LoginActivity;
-import com.example.mydailyvu.FeedbackActivity;
+import com.example.mydailyvu.Models.Routine;
 import com.example.mydailyvu.R;
 import com.example.mydailyvu.Routine_Settings.RoutineSettingsActivity;
 import com.example.mydailyvu.Routine.ViewPagerAdapter;
@@ -88,9 +85,10 @@ public class RoutineActivity extends AppCompatActivity {
         //Theme Settings
         themeSettings = new ThemeSettings(this);
         if (themeSettings.loadNightModeState() == false) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
 
         //...............
@@ -125,6 +123,7 @@ public class RoutineActivity extends AppCompatActivity {
 
 //        For Action Bar
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbarTitle.setText("Routine");
 
 //        For Tab Layout
@@ -168,9 +167,9 @@ public class RoutineActivity extends AppCompatActivity {
         Switch drawerSwitch = (Switch) menuItem.getActionView().findViewById(R.id.darkModeSwitch);
         drawerSwitch.setClickable(false);
         if (themeSettings.loadNightModeState() == false) {
-            drawerSwitch.setChecked(true);
-        } else {
             drawerSwitch.setChecked(false);
+        } else {
+            drawerSwitch.setChecked(true);
         }
     }
 
@@ -430,6 +429,14 @@ public class RoutineActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        boolean firstStart = prefs.getBoolean("firstStart", true);
+
+        if (firstStart) {
+            Intent intent = new Intent(RoutineActivity.this,OnboardingActivity.class);
+            startActivity(intent);
+        }
 
         navigationView.setCheckedItem(R.id.routine);
 

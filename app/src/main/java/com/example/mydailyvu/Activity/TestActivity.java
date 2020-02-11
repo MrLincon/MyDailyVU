@@ -1,4 +1,4 @@
-package com.example.mydailyvu;
+package com.example.mydailyvu.Activity;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.mydailyvu.R;
+import com.example.mydailyvu.ThemeSettings;
 
 public class TestActivity extends AppCompatActivity {
 

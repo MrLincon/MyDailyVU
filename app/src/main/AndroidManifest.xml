@@ -12,42 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Activity.OnboardingActivity"></activity>
+        <activity android:name=".Activity.TestActivity" />
         <activity
             android:name=".Authentication.PasswordRecoveryActivity"
             android:parentActivityName=".Authentication.LoginActivity" />
-        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".Activity.SplashScreenActivity" />
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".Activity.FeedbackActivity"
             android:parentActivityName=".Activity.RoutineActivity" />
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".Activity.AboutActivity" />
         <activity
             android:name=".Activity.NotificationActivity"
             android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Profile_Teacher.TeacherProfileActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Profile_Teacher.EditTeacherProfileActivity"
-            android:parentActivityName=".Profile_Teacher.TeacherProfileActivity" />
-        <activity
-            android:name=".Profile_CR.CrProfileActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Profile_CR.EditCrProfileActivity"
-            android:parentActivityName=".Profile_CR.CrProfileActivity" />
-        <activity
-            android:name=".Profile_CR.CrListActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Profile_Teacher.TeacherListActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
         <activity android:name=".Authentication.ConfirmActivity" />
         <activity android:name=".Authentication.SignupActivity" />
-        <activity android:name=".Authentication.LoginActivity"></activity>
-        <activity
-            android:name=".Activity.RoutineActivity"
-            android:label="">
+        <activity android:name=".Authentication.LoginActivity" />
+        <activity android:name=".Activity.RoutineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

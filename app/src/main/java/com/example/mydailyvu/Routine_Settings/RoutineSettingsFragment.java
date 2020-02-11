@@ -1,22 +1,15 @@
 package com.example.mydailyvu.Routine_Settings;
 
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
 
-import com.example.mydailyvu.Activity.RoutineActivity;
 import com.example.mydailyvu.R;
-import com.example.mydailyvu.SplashScreenActivity;
-import com.example.mydailyvu.ThemeSettings;
 
 public class RoutineSettingsFragment extends PreferenceFragment {
 

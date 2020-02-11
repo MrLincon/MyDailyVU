@@ -31,7 +31,6 @@ public class Fragment_Wednesday extends Fragment {
     RecyclerView recyclerView;
     LottieAnimationView anim_wednesday;
 
-    private static final String PREF_NAME = "pref_name";
     private static final String PREF_TEACHERS_NAME = "pref_teacherName";
     private static final String PREF_SEMESTER = "pref_semester";
     private static final String PREF_SEC = "pref_sec";

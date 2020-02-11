@@ -1,4 +1,4 @@
-package com.example.mydailyvu;
+package com.example.mydailyvu.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.mydailyvu.Activity.RoutineActivity;
+import com.example.mydailyvu.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

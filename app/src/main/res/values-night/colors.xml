@@ -5,6 +5,7 @@
     <color name="colorAccent">#53BBCF</color>
 
     <color name="colorText">#eee</color>
+    <color name="colorTextSecondary">#80EEEEEE</color>
     <color name="colorButton">#ffffff</color>
     <color name="colorButtonText">#121416</color>
 
@@ -17,7 +18,7 @@
     <color name="colorRoutineHeader">#121416</color>
     <color name="colorRoutineHeaderText">#53BBCF</color>
 
-    <color name="colorTextTab">#424242</color>
+    <color name="colorTextTab">#353535</color>
     <color name="colorIndicatorTab">#53BBCF</color>
     <color name="colorSelectedTextTab">#eee</color>
 

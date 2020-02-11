@@ -31,12 +31,6 @@ public class Fragment_Tuesday extends Fragment {
     RecyclerView recyclerView;
 
     LottieAnimationView anim_tuesday;
-//    ArrayList<RoutineDataSetFirebase> arrayList;
-//    FirebaseRecyclerOptions<RoutineDataSetFirebase> options_cr;
-//    FirebaseRecyclerAdapter<RoutineDataSetFirebase, RoutineViewHolder> adapter;
-//    DatabaseReference databaseReference;
-
-    private static final String PREF_NAME = "pref_name";
     private static final String PREF_TEACHERS_NAME = "pref_teacherName";
     private static final String PREF_SEMESTER = "pref_semester";
     private static final String PREF_SEC = "pref_sec";
