@@ -11,6 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -18,14 +20,14 @@
             android:id="@+id/imageView"
             android:layout_width="76dp"
             android:layout_height="76dp"
-            android:src="@drawable/app_icon"></ImageView>
+            android:src="@mipmap/ic_launcher"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway_semibold"
-            android:text="My Daily VU"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="My Daily VU"
             android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"></TextView>

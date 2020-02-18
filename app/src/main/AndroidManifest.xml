@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mydailyvu">
+    package="com.whitespace.mydailyvu">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
@@ -37,18 +37,6 @@
         </activity>
         <activity
             android:name=".Routine_Settings.RoutineSettingsActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Webview.VUActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Webview.StudentPanelActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Webview.CSEActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity
-            android:name=".Webview.NoticeBoardActivity"
             android:parentActivityName=".Activity.RoutineActivity" />
 
         <meta-data

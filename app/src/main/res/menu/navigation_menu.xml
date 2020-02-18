@@ -11,21 +11,9 @@
                     android:title="Routine"
                     android:icon="@drawable/ic_routine"></item>
                 <item
-                    android:id="@+id/vu"
-                    android:title="Varendra University"
-                    android:icon="@drawable/ic_vu"></item>
-                <item
-                    android:id="@+id/student_panel"
-                    android:title="Student Panel"
-                    android:icon="@drawable/ic_student_panel"></item>
-                <item
-                    android:id="@+id/dept_cse"
-                    android:title="Dept. of CSE"
-                    android:icon="@drawable/ic_dept_cse"></item>
-                <item
-                    android:id="@+id/notice_board"
-                    android:title="Notice Board"
-                    android:icon="@drawable/ic_notice_board"></item>
+                    android:id="@+id/vu_book"
+                    android:title="VU Book"
+                    android:icon="@drawable/ic_tag_faces"></item>
                 <item
                     android:id="@+id/change_routine"
                     android:icon="@drawable/ic_change_routine"
@@ -46,16 +34,14 @@
                     android:id="@+id/feedback"
                     android:title="Feedback"
                     android:icon="@drawable/ic_feedback"></item>
-
+                <item
+                    android:id="@+id/rate"
+                    android:title="Rate App"
+                    android:icon="@drawable/ic_rate"></item>
                 <item
                     android:id="@+id/about"
                     android:title="About Dev"
                     android:icon="@drawable/ic_about"></item>
-                <item
-                    android:id="@+id/log_out"
-                    android:title="Log Out"
-                    android:icon="@drawable/ic_exit"></item>
-
 
             </group>
         </menu>

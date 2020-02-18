@@ -5,12 +5,12 @@
     <color name="colorAccent">#00bcd4</color>
 
     <color name="colorText">#121416</color>
-    <color name="colorTextSecondary">#80121416</color>
+    <color name="colorTextSecondary">#BF121416</color>
     <color name="colorButton">#121416</color>
     <color name="colorButtonText">#fff</color>
 
     <color name="colorBackground">#fafafa</color>
-    <color name="colorViewPagerBackground">#fafafa</color>
+    <color name="colorViewPagerBackground">#eee</color>
     <color name="colorView">#1A000000</color>
     <color name="colorCard">#fff</color>
     <color name="colorIconTint">#000</color>
