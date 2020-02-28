@@ -268,26 +268,6 @@ public class RoutineActivity extends AppCompatActivity {
                             case R.id.vu_book:
                                 Toast.makeText(RoutineActivity.this, "This feature is under development! :D", Toast.LENGTH_SHORT).show();
                                 break;
-//                            case R.id.vu:
-//                                Intent intent_vu = new Intent(RoutineActivity.this, VUActivity.class);
-//                                startActivity(intent_vu);
-//                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                                break;
-//                            case R.id.student_panel:
-//                                Intent intent_student_panel = new Intent(RoutineActivity.this, StudentPanelActivity.class);
-//                                startActivity(intent_student_panel);
-//                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                                break;
-//                            case R.id.dept_cse:
-//                                Intent intent_dept_cse = new Intent(RoutineActivity.this, CSEActivity.class);
-//                                startActivity(intent_dept_cse);
-//                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                                break;
-//                            case R.id.notice_board:
-//                                Intent intent_notice_board = new Intent(RoutineActivity.this, NoticeBoardActivity.class);
-//                                startActivity(intent_notice_board);
-//                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                                break;
                             case R.id.change_routine:
                                 Intent changeRoutine = new Intent(RoutineActivity.this, RoutineSettingsActivity.class);
                                 startActivity(changeRoutine);
@@ -303,9 +283,14 @@ public class RoutineActivity extends AppCompatActivity {
                                 }
                                 break;
                             case R.id.feedback:
-                                Intent feedback_intent = new Intent(RoutineActivity.this, FeedbackActivity.class);
-                                startActivity(feedback_intent);
-                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                Intent feedback = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "mydaily.vu@gmail.com"));
+
+                                try {
+                                    startActivity(Intent.createChooser(feedback, "Choose an e-mail client"));
+                                } catch (android.content.ActivityNotFoundException e) {
+                                    Toast.makeText(RoutineActivity.this, "There is no e-mail clint installed!", Toast.LENGTH_SHORT).show();
+
+                                }
                                 break;
                             case R.id.about:
                                 Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
@@ -445,6 +430,5 @@ public class RoutineActivity extends AppCompatActivity {
         }
 
         loadPopUp();
-
     }
 }

@@ -12,23 +12,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.OnboardingActivity"></activity>
-        <activity android:name=".Activity.TestActivity" />
+        <activity
+            android:name=".Activity.OnboardingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Activity.TestActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Authentication.PasswordRecoveryActivity"
-            android:parentActivityName=".Authentication.LoginActivity" />
-        <activity android:name=".Activity.SplashScreenActivity" />
+            android:parentActivityName=".Authentication.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.SplashScreenActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.FeedbackActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity android:name=".Activity.AboutActivity" />
+            android:parentActivityName=".Activity.RoutineActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.AboutActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.NotificationActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
-        <activity android:name=".Authentication.ConfirmActivity" />
-        <activity android:name=".Authentication.SignupActivity" />
-        <activity android:name=".Authentication.LoginActivity" />
-        <activity android:name=".Activity.RoutineActivity">
+            android:parentActivityName=".Activity.RoutineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Authentication.ConfirmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Authentication.SignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Authentication.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.RoutineActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +55,8 @@
         </activity>
         <activity
             android:name=".Routine_Settings.RoutineSettingsActivity"
-            android:parentActivityName=".Activity.RoutineActivity" />
+            android:parentActivityName=".Activity.RoutineActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"

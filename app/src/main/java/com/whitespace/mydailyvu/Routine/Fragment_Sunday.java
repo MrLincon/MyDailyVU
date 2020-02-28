@@ -105,7 +105,6 @@ public class Fragment_Sunday extends Fragment {
                     .whereEqualTo("section",SECTION)
                     .whereEqualTo("department",DEPARTMENT)
                     .whereEqualTo("day","Sunday")
-                    .orderBy("am_pm", Query.Direction.ASCENDING)
                     .orderBy("orderHour", Query.Direction.ASCENDING)
                     .orderBy("orderMinute", Query.Direction.ASCENDING);
             FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
@@ -124,7 +123,6 @@ public class Fragment_Sunday extends Fragment {
             Query query = routine.whereArrayContains("teachers",TEACHERS_NAME)
                     .whereEqualTo("day","Sunday")
                     .whereEqualTo("department",DEPARTMENT)
-                    .orderBy("am_pm", Query.Direction.ASCENDING)
                     .orderBy("orderHour", Query.Direction.ASCENDING)
                     .orderBy("orderMinute", Query.Direction.ASCENDING);
             FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
