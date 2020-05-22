@@ -3,6 +3,8 @@ package com.whitespace.mydailyvu.Activity;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -74,7 +76,7 @@ public class RoutineActivity extends AppCompatActivity {
     ThemeSettings themeSettings;
     private Switch darkModeSwitch;
 
-    Dialog popupChangeRoutine;
+    Dialog popup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +107,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        popupChangeRoutine = new Dialog(this);
+        popup = new Dialog(this);
 
         changeBtn = findViewById(R.id.changeBtn);
 
@@ -292,6 +294,30 @@ public class RoutineActivity extends AppCompatActivity {
 
                                 }
                                 break;
+                            case R.id.share:
+                                popup.setContentView(R.layout.popup_share);
+                                popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                LinearLayout copy = popup.findViewById(R.id.copy);
+                                copy.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        String link = "https://play.google.com/store/apps/details?id=com.whitespace.mydailyvu&hl=en";
+                                        ClipboardManager clipboard = (ClipboardManager) getSystemService(getApplicationContext().CLIPBOARD_SERVICE);
+                                        ClipData clip = ClipData.newPlainText("", link);
+                                        clipboard.setPrimaryClip(clip);
+                                        Toast.makeText(RoutineActivity.this, "Link copied to clipboard", Toast.LENGTH_SHORT).show();
+                                        popup.dismiss();
+                                    }
+                                });
+                                ImageView close = popup.findViewById(R.id.close_popup);
+                                close.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        popup.dismiss();
+                                    }
+                                });
+                                popup.show();
+                                break;
                             case R.id.about:
                                 Intent about_intent = new Intent(RoutineActivity.this, AboutActivity.class);
                                 startActivity(about_intent);
@@ -338,9 +364,9 @@ public class RoutineActivity extends AppCompatActivity {
         String TeachersName = sharedPreferences.getString(PREF_TEACHERS_NAME, "");
 
         if (RoutineType == "" || Department == "") {
-            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
-            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            popup.setContentView(R.layout.popup_select_routine);
+            popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            LinearLayout select_routine = popup.findViewById(R.id.select_routine);
             select_routine.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -348,19 +374,19 @@ public class RoutineActivity extends AppCompatActivity {
                     startActivity(intent_profile);
                 }
             });
-            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            ImageView close = popup.findViewById(R.id.close_popup);
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    popupChangeRoutine.dismiss();
+                    popup.dismiss();
                 }
             });
-            popupChangeRoutine.show();
+            popup.show();
         }
         if (RoutineType.equals("Teacher") && TeachersName == "") {
-            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
-            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            popup.setContentView(R.layout.popup_select_routine);
+            popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            LinearLayout select_routine = popup.findViewById(R.id.select_routine);
             select_routine.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -368,18 +394,18 @@ public class RoutineActivity extends AppCompatActivity {
                     startActivity(intent_profile);
                 }
             });
-            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            ImageView close = popup.findViewById(R.id.close_popup);
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    popupChangeRoutine.dismiss();
+                    popup.dismiss();
                 }
             });
-            popupChangeRoutine.show();
+            popup.show();
         }
         if (RoutineType.equals("Student") && (Semester == "" || Section == "")) {
-            popupChangeRoutine.setContentView(R.layout.popup_select_routine);
-            LinearLayout select_routine = popupChangeRoutine.findViewById(R.id.select_routine);
+            popup.setContentView(R.layout.popup_select_routine);
+            LinearLayout select_routine = popup.findViewById(R.id.select_routine);
             select_routine.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -387,15 +413,15 @@ public class RoutineActivity extends AppCompatActivity {
                     startActivity(intent_profile);
                 }
             });
-            ImageView close = popupChangeRoutine.findViewById(R.id.close_popup);
+            ImageView close = popup.findViewById(R.id.close_popup);
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    popupChangeRoutine.dismiss();
+                    popup.dismiss();
                 }
             });
-            popupChangeRoutine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            popupChangeRoutine.show();
+            popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            popup.show();
         }
     }
 

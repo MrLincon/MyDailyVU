@@ -39,8 +39,12 @@
                     android:title="Rate App"
                     android:icon="@drawable/ic_rate"></item>
                 <item
+                    android:id="@+id/share"
+                    android:title="Share"
+                    android:icon="@drawable/ic_share"></item>
+                <item
                     android:id="@+id/about"
-                    android:title="About Dev"
+                    android:title="About"
                     android:icon="@drawable/ic_about"></item>
 
             </group>

@@ -20,8 +20,6 @@ public class NotificationAdapter extends FirestoreRecyclerAdapter<Notification, 
         super(options);
     }
 
-
-
     @Override
     protected void onBindViewHolder(@NonNull NotificationAdapter.NotificationHolder holder, int position, @NonNull final Notification model) {
         holder.title.setText(model.getTitle());

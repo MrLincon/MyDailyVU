@@ -18,13 +18,10 @@
         <item>AH</item>
         <item>SP</item>
         <item>RAK</item>
-        <item>SZ</item>
         <item>URC</item>
         <item>JF</item>
         <item>MK</item>
         <item>NAT</item>
-        <item>FW</item>
-        <item>SN</item>
         <item>NH</item>
         <item>SR</item>
         <item>NSS</item>
@@ -39,15 +36,23 @@
         <item>SAL</item>
         <item>AAS</item>
         <item>GS</item>
+        <item>MRS</item>
+        <item>ITR</item>
+        <item>ST</item>
         <item>EH</item>
         <item>AY</item>
         <item>AA</item>
         <item>MRI</item>
         <item>AM</item>
         <item>MAH</item>
+        <item>AHS</item>
+        <item>ZA</item>
         <item>RI</item>
         <item>SS</item>
         <item>MP</item>
+        <item>MR</item>
+        <item>AKZ</item>
+        <item>MSD</item>
     </string-array>
 
     <string-array name="pref_semester">
