@@ -1,6 +1,7 @@
 package com.whitespace.mydailyvu.Routine;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.whitespace.mydailyvu.Add_Class.Add_Class_Sunday;
 import com.whitespace.mydailyvu.Models.Routine;
 import com.whitespace.mydailyvu.Models.RoutineAdapter;
 import com.whitespace.mydailyvu.R;
@@ -31,11 +34,15 @@ public class Fragment_Sunday extends Fragment {
     RecyclerView recyclerView;
     LottieAnimationView anim_sunday;
 
+    FloatingActionButton addClass;
+
     private static final String PREF_TEACHERS_NAME = "pref_teacherName";
     private static final String PREF_SEMESTER = "pref_semester";
     private static final String PREF_SEC = "pref_sec";
     private static final String PREF_ROUTINE_TYPE = "pref_routineType";
     private static final String PREF_DEPT = "pref_dept";
+
+    public static final String EXTRA_DAY = "com.example.mydailyvuadmin.EXTRA_DAY";
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference routine = db.collection("Routine");
@@ -48,12 +55,23 @@ public class Fragment_Sunday extends Fragment {
         view = inflater.inflate(R.layout.fragment_sunday, container, false);
 
         anim_sunday = view.findViewById(R.id.anim_sunday);
+        addClass = view.findViewById(R.id.fab);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         int topPadding = getResources().getDimensionPixelSize(R.dimen.topPadding);
         int bottomPadding = getResources().getDimensionPixelSize(R.dimen.bottomPadding);
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.sidePadding);
         recyclerView.addItemDecoration(new RoutineRecyclerDecoration(topPadding, sidePadding, bottomPadding));
+
+        addClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addClass = new Intent(getActivity(), Add_Class_Sunday.class);
+                String DAY = "Sunday";
+                addClass.putExtra(EXTRA_DAY, DAY);
+                startActivity(addClass);
+            }
+        });
 
         getRoutine();
 
@@ -143,6 +161,22 @@ public class Fragment_Sunday extends Fragment {
                 e.printStackTrace();
             }
         }
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy < 0 && !addClass.isShown())
+                    addClass.show();
+                else if (dy > 0 && addClass.isShown())
+                    addClass.hide();
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
 
     }
 
