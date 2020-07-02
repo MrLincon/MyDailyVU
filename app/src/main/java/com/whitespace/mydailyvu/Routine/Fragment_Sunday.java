@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.whitespace.mydailyvu.Add_Class.Add_Class_Sunday;
+import com.whitespace.mydailyvu.Add_Class.AddClassSunday;
 import com.whitespace.mydailyvu.Models.Routine;
 import com.whitespace.mydailyvu.Models.RoutineAdapter;
 import com.whitespace.mydailyvu.R;
@@ -66,7 +66,7 @@ public class Fragment_Sunday extends Fragment {
         addClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addClass = new Intent(getActivity(), Add_Class_Sunday.class);
+                Intent addClass = new Intent(getActivity(), AddClassSunday.class);
                 String DAY = "Sunday";
                 addClass.putExtra(EXTRA_DAY, DAY);
                 startActivity(addClass);

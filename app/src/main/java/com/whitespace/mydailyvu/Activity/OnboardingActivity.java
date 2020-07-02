@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.whitespace.mydailyvu.Authentication.LoginActivity;
 import com.whitespace.mydailyvu.SliderAdapter;
 import com.whitespace.mydailyvu.R;
 
@@ -72,7 +73,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 editor.putBoolean("firstStart", false);
                 editor.apply();
 
-                Intent intent = new Intent(OnboardingActivity.this,RoutineActivity.class);
+                Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

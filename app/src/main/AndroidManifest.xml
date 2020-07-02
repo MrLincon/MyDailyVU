@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Add_Class.Add_Class_Sunday"
+        <activity android:name=".Add_Class.AddClassSunday"
             android:parentActivityName=".Activity.RoutineActivity"></activity>
         <activity
             android:name=".Activity.OnboardingActivity"
