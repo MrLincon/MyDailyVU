@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:478874915804:android:d28c57ebd897b771f9b519",
+        "android_client_info": {
+          "package_name": "com.whitespace.my_daily_vu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478874915804-h3qcmnk0e3th57l2u1re3iikfo7qcl2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.whitespace.my_daily_vu",
+            "certificate_hash": "e114ebae66484edce3bd53dbb70a574ab693d49a"
+          }
+        },
+        {
+          "client_id": "478874915804-91q23o2ijb6flin5o8167nu78bkgnn1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANNDCF5h7_X-130fA0XjPYaAHamkg2DVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478874915804-91q23o2ijb6flin5o8167nu78bkgnn1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:478874915804:android:98318c09dacd6190f9b519",
         "android_client_info": {
           "package_name": "com.whitespace.mydailyvu"
@@ -19,6 +56,43 @@
           "client_type": 1,
           "android_info": {
             "package_name": "com.whitespace.mydailyvu",
+            "certificate_hash": "1eb4310822c28024127b3834f68d6f31d323b078"
+          }
+        },
+        {
+          "client_id": "478874915804-91q23o2ijb6flin5o8167nu78bkgnn1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANNDCF5h7_X-130fA0XjPYaAHamkg2DVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478874915804-91q23o2ijb6flin5o8167nu78bkgnn1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478874915804:android:9cc19057577fca17f9b519",
+        "android_client_info": {
+          "package_name": "com.whitespace.mydailyvuadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478874915804-gpojml7kfrfed9mpoek4nc8egr2rmi81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.whitespace.mydailyvuadmin",
             "certificate_hash": "1eb4310822c28024127b3834f68d6f31d323b078"
           }
         },

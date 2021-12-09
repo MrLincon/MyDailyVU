@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.whitespace.mydailyvu">
+    package="com.whitespace.my_daily_vu">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -14,51 +14,54 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name="com.whitespace.my_daily_vu.Add_Class.AddClassSunday"
+            android:parentActivityName="com.whitespace.my_daily_vu.Activity.RoutineActivity"></activity>
         <activity
-            android:name=".Activity.OnboardingActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.OnboardingActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.TestActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.TestActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Authentication.PasswordRecoveryActivity"
-            android:parentActivityName=".Authentication.LoginActivity"
+            android:name="com.whitespace.my_daily_vu.Authentication.PasswordRecoveryActivity"
+            android:parentActivityName="com.whitespace.my_daily_vu.Authentication.LoginActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.SplashScreenActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.SplashScreenActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.FeedbackActivity"
-            android:parentActivityName=".Activity.RoutineActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.FeedbackActivity"
+            android:parentActivityName="com.whitespace.my_daily_vu.Activity.RoutineActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
-        <activity android:name=".Activity.AboutActivity"
-            android:parentActivityName=".Activity.RoutineActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.NotificationActivity"
-            android:parentActivityName=".Activity.RoutineActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.AboutActivity"
+            android:parentActivityName="com.whitespace.my_daily_vu.Activity.RoutineActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Authentication.ConfirmActivity"
+            android:name="com.whitespace.my_daily_vu.Activity.NotificationActivity"
+            android:parentActivityName="com.whitespace.my_daily_vu.Activity.RoutineActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Authentication.SignupActivity"
+            android:name="com.whitespace.my_daily_vu.Authentication.ConfirmActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Authentication.LoginActivity"
+            android:name="com.whitespace.my_daily_vu.Authentication.SignupActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.RoutineActivity"
+            android:name="com.whitespace.my_daily_vu.Authentication.LoginActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.whitespace.my_daily_vu.Activity.RoutineActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -68,10 +71,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Routine_Settings.RoutineSettingsActivity"
-            android:parentActivityName=".Activity.RoutineActivity"
+            android:name="com.whitespace.my_daily_vu.Routine_Settings.RoutineSettingsActivity"
+            android:parentActivityName="com.whitespace.my_daily_vu.Activity.RoutineActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

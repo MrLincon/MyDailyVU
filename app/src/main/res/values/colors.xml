@@ -22,4 +22,7 @@
     <color name="colorIndicatorTab">#53BBCF</color>
     <color name="colorSelectedTextTab">#00bcd4</color>
 
+    <color name="colorFab">#00bcd4</color>
+    <color name="colorPopupWindow">#202020</color>
+
 </resources>
