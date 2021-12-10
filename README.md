@@ -16,7 +16,7 @@ It had nearly 1000 downloads, unfortunately my first goole play console got term
 
 - UI - XML
 - Language - Java
-- Database - Firebase Firestore
+- Database - Firebase Firestore, Firebase Authentication
 - Graphics - Adobe Illustrator
 - Version Support - Android 6 to Android 10
 
